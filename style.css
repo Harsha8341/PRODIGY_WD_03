@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+}
+h1 {
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+.scoreboard {
+  display: flex;
+  gap: 20px;
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.cell {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid #fff;
+  font-size: 2.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s, background-color 0.3s;
+}
+.cell:hover {
+  transform: scale(1.1);
+}
+.cell.taken {
+  cursor: not-allowed;
+  color: #ffeb3b;
+  animation: popIn 0.3s ease-in-out;
+}
+.cell.winner {
+  background-color: #00c853;
+  color: black;
+}
+#status {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+button#reset {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+button#reset:hover {
+  background-color: #f50057;
+}
+canvas#celebration {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes popIn {
+  from { transform: scale(0.5); }
+  to { transform: scale(1); }
+}
